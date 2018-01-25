@@ -20,7 +20,7 @@ var counting = 0; // Start couting at 0
 var timerSwitcher; // Timer to switch header image
 var loadCount = 1; // Counter for slow loading of images
 var cycleTime = 8000; // Time between each image change
-var fadeTime = 200; // Fade in/out time
+var fadeTime = 500; // Fade in/out time
 
 /////////////////////////////////////////////////////////
 // Slow load all header images
