@@ -36,7 +36,7 @@ var slowLoad = setInterval(function() {
         clearInterval(slowLoad); // Clear timer slowLoad
     }
 
-},500);
+},1000);
 
 
 /////////////////////////////////////////////////////////
