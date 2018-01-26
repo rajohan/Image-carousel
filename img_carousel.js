@@ -4,10 +4,10 @@
 var images = new Array();
 images = [
 
-    {"Source":"img/header1.jpg","Title":"Learn the basics","Text":"HTML, CSS, JavaScript, jQuery and PHP tutorials","Button_text":"View tutorials","Link":"#header1"},
-    {"Source":"img/header2.jpg","Title":"Need a website?","Text":"I'm a single source high quality solution for enforcing your business existence online","Button_text":"View services","Link":"#header2"},
-    {"Source":"img/header3.jpg","Title":"Personal blog","Text":"Read about my life and follow me through my projects","Button_text":"View blog","Link":"#header3"},
-    {"Source":"img/header4.jpg","Title":"Computer basics","Text":"Linux, security and other computer related guides","Button_text":"View guides","Link":"#header4"}
+    {"Source":"img/header/header1.jpg","Title":"Learn the basics","Text":"HTML, CSS, JavaScript, jQuery and PHP tutorials","Button_text":"View tutorials","Link":"index.php?page=blog"},
+    {"Source":"img/header/header2.jpg","Title":"Need a website?","Text":"I'm a single source high quality solution for enforcing your business existence online","Button_text":"View services","Link":"index.php?page=services"},
+    {"Source":"img/header/header3.jpg","Title":"Personal blog","Text":"Read about my life and follow me through my projects","Button_text":"View blog","Link":"index.php?page=blog"},
+    {"Source":"img/header/header4.jpg","Title":"Computer basics","Text":"Linux, security and other computer related guides","Button_text":"View guides","Link":"index.php?page=blog"}
 
 ];
 
@@ -29,11 +29,15 @@ var slowLoad = setInterval(function() {
     
     // Slow load images
     if(loadCount < images.length) {
+       
         $("body").append("<img src='"+images[loadCount]["Source"]+"' alt='Header"+loadCount+"' style='display:none;'>"); // Insert a <img> with display none to slow load all header images
         loadCount++; // add 1 to loadCount
-    // We are done slow loading images
+   
+        // We are done slow loading images
     } else {
+
         clearInterval(slowLoad); // Clear timer slowLoad
+
     }
 
 },1000);
@@ -53,7 +57,7 @@ function changeImage() {
         $("#header__button").attr({"href":images[counting]["Link"]}).fadeIn(fadeTime); // Change button link
     
     });
-    
+
     $(".header__placeholder").css({"background-image":"linear-gradient(to right bottom,rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)), url("+images[counting]["Source"]+")"}); // Change placeholder image
 }
 
@@ -65,14 +69,18 @@ function activeCircle() {
 
     // If counting not equals count add 1 to counting and change active circle
     if(counting !== count) {
+
         counting++; // Add 1 to counting
         $("#header__switcher-"+counting).removeClass("header__circle-switcher--active"); // Remove active class from old circle
         $("#header__switcher-"+(counting+1)).addClass("header__circle-switcher--active"); // Add active class to new active circle
-        // Else set counting to 0 and change active circle
+    
+    // Else set counting to 0 and change active circle
     } else {
+      
         counting = 0; // Set counting to 0
         $("#header__switcher-"+(count+1)).removeClass("header__circle-switcher--active"); // Remove active class from old circle
         $("#header__switcher-"+(counting+1)).addClass("header__circle-switcher--active"); // Add active class to new active circle
+    
     }
 
 }
@@ -103,14 +111,18 @@ $(".header__img-switcher--prev").on("click", function() {
 
     // If counting = 0 set counting to the value of count and change active circle
     if(counting === 0) {
+      
         counting = count; // Set counting equal to count
         $("#header__switcher-"+1).removeClass("header__circle-switcher--active"); // Remove active class from old circle
         $("#header__switcher-"+(counting+1)).addClass("header__circle-switcher--active"); // Add active class to new active circle
+    
     // Else subtract 1 from counting and change active circle
     } else {
+     
         counting--; // Subtract 1 from counting
         $("#header__switcher-"+(counting+2)).removeClass("header__circle-switcher--active"); // Remove active class from old circle
         $("#header__switcher-"+(counting+1)).addClass("header__circle-switcher--active"); // Add active class to new active circle
+    
     }
 
     changeImage(); // Set new background image
